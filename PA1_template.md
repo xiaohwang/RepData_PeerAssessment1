@@ -50,15 +50,25 @@ For this part of the assignment, ignore the missing values in the dataset.
 
 1. Make a histogram of the total number of steps taken each day
 
+![Histogram of Total Number of Steps](figure/1.png) 
+
 2. Calculate and report the **mean** and **median** total number of steps taken per day
+
+## [1] 10766.19
 
 What is the average daily activity pattern?
 -------------------------------------------
 
 1. Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
 
+![Time Series Plot](figure/2.png) 
+
+
+
 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
+##     interval    steps
+## 104      835 206.1698
 
 Imputing missing values
 -----------------------
@@ -67,12 +77,43 @@ Note that there are a number of days/intervals where there are missing values (c
 
 1. Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs)
 
-2. Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc. **Imputing stragegy is to use the average number of steps for each interval to fill in missing data.**
+## [1] 2304
+
+2. Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc. 
+
+**Imputing stragegy is to use the average number of steps for each interval to fill in missing data.**
 
 3. Create a new dataset that is equal to the original dataset but with the missing data filled in.
 
+Before
+
+## 'data.frame':    17568 obs. of  9 variables:
+##  $ steps      : int  NA NA NA NA NA NA NA NA NA NA ...
+##  $ date       : Factor w/ 61 levels "2012-10-01","2012-10-02",..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ interval   : int  0 5 10 15 20 25 30 35 40 45 ...
+##  $ datetimestr: chr  "2012-10-01 0000" "2012-10-01 0005" "2012-10-01 0010" "2012-10-01 0015" ...
+##  $ datetime   : POSIXlt, format: "2012-10-01 00:00:00" "2012-10-01 00:05:00" ...
+##  $ intervalstr: chr  "00:00" "00:05" "00:10" "00:15" ...
+##  $ DOW        : num  2 2 2 2 2 2 2 2 2 2 ...
+##  $ WE         : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+##  $ weekday    : chr  "weekday" "weekday" "weekday" "weekday" ...
+
+New
+
+## 'data.frame':    17568 obs. of  9 variables:
+##  $ steps      : num  2 0 0 0 0 0 0 0 0 0 ...
+##  $ date       : Factor w/ 61 levels "2012-10-01","2012-10-02",..: 1 54 28 37 55 46 20 47 38 56 ...
+##  $ interval   : int  0 0 0 0 0 0 0 0 0 0 ...
+##  $ datetimestr: chr  "2012-10-01 0000" "2012-11-23 0000" "2012-10-28 0000" "2012-11-06 0000" ...
+##  $ datetime   : POSIXlt, format: "2012-10-01 00:00:00" "2012-11-23 00:00:00" ...
+##  $ intervalstr: chr  "00:00" "00:00" "00:00" "00:00" ...
+##  $ DOW        : num  2 6 1 3 7 5 7 6 4 1 ...
+##  $ WE         : logi  FALSE FALSE TRUE FALSE TRUE FALSE ...
+##  $ weekday    : chr  "weekday" "weekday" "weekend" "weekday" ...
+
 4. Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
 
+![Histogram Plot](figure/3.png) 
 
 Are there differences in activity patterns between weekdays and weekends?
 -------------------------------------------------------------------------
@@ -82,6 +123,8 @@ For this part the weekdays() function may be of some help here. Use the dataset 
 1. Create a new factor variable in the dataset with two levels - "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
 
 2. Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis).
+
+![Panel Plot](figure/4.png) 
 
 
 
